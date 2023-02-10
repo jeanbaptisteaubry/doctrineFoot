@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
@@ -29,7 +30,7 @@ class Joueur
     private int $maillot;
 
 
-    #[ManyToOne(targetEntity: Equipe::class, inversedBy: 'joueurs')]
+    #[ManyToOne(targetEntity: Equipe::class, inversedBy: 'joueurs'), joinColumn(name: "equipe_id", referencedColumnName: "id", nullable: true)]
     private ?Equipe $equipe = null;
 
     public function __construct(string $nom, string $prenom, int $maillot, ?Equipe $equipe)
