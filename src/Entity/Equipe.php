@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use ClubSupporter;
-use Coach;
+use App\Entity\ClubSupporter;
+use App\Entity\Coach;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\Column;
@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\Table;
-use Stade;
+use App\Entity\Stade;
 
 #[Entity]
 #[Table(name: 'EQUIPE')]
@@ -26,11 +26,9 @@ class Equipe
     #[Column(type: 'string')]
     private string $denomination;
 
-    /** @var Collection<int, Equipe> */
     #[OneToMany(targetEntity: Joueur::class, mappedBy: 'equipe', indexBy: 'id')]
     private Collection $joueurs;
 
-    /** @var Collection<int, ClubSupporter> */
     #[OneToMany(targetEntity: ClubSupporter::class, mappedBy: 'equipe', indexBy: 'id')]
     private Collection $clubSupporters;
 

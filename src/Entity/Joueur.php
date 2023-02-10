@@ -29,7 +29,7 @@ class Joueur
     private int $maillot;
 
 
-    #[ManyToOne(targetEntity: Equipe::class, inversedBy: 'joueurs'), Column(nullable: true)]
+    #[ManyToOne(targetEntity: Equipe::class, inversedBy: 'joueurs')]
     private ?Equipe $equipe = null;
 
     public function __construct(string $nom, string $prenom, int $maillot, ?Equipe $equipe)

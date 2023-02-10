@@ -1,7 +1,8 @@
 <?php
-namespace App\class;
+namespace App\Entity;
 
 use App\Entity\Equipe;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
