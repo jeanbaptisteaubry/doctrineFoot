@@ -32,14 +32,33 @@ class Joueur
     #[ManyToOne(targetEntity: Equipe::class, inversedBy: 'joueurs'), Column(nullable: true)]
     private ?Equipe $equipe = null;
 
-    public function __construct(string $nom, string $prenom, int $maillot, Equipe $equipe)
+    public function __construct(string $nom, string $prenom, int $maillot, ?Equipe $equipe)
+    {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->maillot = $maillot;
+        $this->equipe = $equipe;
+        if($equipe !== null){
+            $equipe->addJoueur($this);
+        }
+    }
+    /*
+    public function __construct()
+    {
+        $this->nom = "";
+        $this->prenom = "";
+        $this->maillot = 0;
+        $this->equipe = null;
+    }
+
+    public function setParametres(string $nom, string $prenom, int $maillot, Equipe $equipe)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->maillot = $maillot;
         $this->equipe = $equipe;
         $equipe->addJoueur($this);
-    }
+    }*/
 
     public function getId(): int|null
     {
