@@ -1,5 +1,5 @@
 <?php
-
+namespace App\class;
 
 use App\Entity\Equipe;
 use Doctrine\Common\Collections\Collection;
