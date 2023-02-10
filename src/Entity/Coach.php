@@ -5,6 +5,7 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\Table;
 
@@ -21,7 +22,7 @@ class Coach
     #[Column(type: 'string')]
     private string $prenom;
 
-    #[OneToOne(targetEntity: Equipe::class, inversedBy: 'coach'), Column(type: 'integer',nullable: true)]
+    #[OneToOne(targetEntity: Equipe::class, inversedBy: 'coach'), JoinColumn(name: "equipe_id", referencedColumnName: "id", nullable: true)]
     private ?Equipe $equipe;
 
     public function __construct(string $nom, string $prenom, ?Equipe $equipe)
