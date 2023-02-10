@@ -21,7 +21,6 @@ class Stade
     #[Column(type: 'string')]
     private string $libelle;
 
-    /** @var Collection<int, Equipe> */
     #[OneToMany(targetEntity: Equipe::class, mappedBy: 'stade', indexBy: 'id')]
     private Collection $equipes;
 
